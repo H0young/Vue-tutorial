@@ -15,17 +15,30 @@
         var div = document.querySelector('#app')
         var viewModel = {}
 
-        Object.defineProperty(viewModel, 'str', {
-            // 속성 접근 시 동작
-            get: function () {
-                console.log('access')
-            },
-            // 속성에 갓 할당 시 동작
-            set: function (newValue) {
-                console.log('할당', newValue)
-                div.innerHTML = newValue
+        // 즉시 실행 함수
+
+        (function () {
+            // 왜 자꾸 function() 띄어지는 것?
+            function init() {
+                Object.defineProperty(viewModel, 'str', {
+                    // 속성 접근 시 동작
+                    get: function () {
+                        console.log('접근')
+                    },
+                    // 속성에 갓 할당 시 동작
+                    set: function (newValue) {
+                        console.log('할당', newValue)
+                        render(newValue)
+                    }
+                })
             }
-        })
+
+            function render(value) {
+                div.innerHTML = value
+            }
+
+            init()
+        })()
     </script>
 </body>
 
