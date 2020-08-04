@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- vue-Reactivity -->
+    <div id="app"></div>
+    <script>
+        var div = document.querySelector('#app')
+        var viewModel = {}
+
+        Object.defineProperty(viewModel, 'str', {
+            // 속성 접근 시 동작
+            get: function () {
+                console.log('access')
+            },
+            // 속성에 갓 할당 시 동작
+            set: function (newValue) {
+                console.log('할당', newValue)
+                div.innerHTML = newValue
+            }
+        })
+    </script>
+</body>
+
+</html>
