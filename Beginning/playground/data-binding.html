@@ -21,6 +21,8 @@
         <div v-show="loading">
             Loading...
         </div>
+        <input type="text" v-model="message" placeholder="type here...">
+        <p>Message is: {{ message }}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -33,6 +35,7 @@
                 uuid: '1234',
                 name: 'text-blue',
                 loading: true,
+                message: '',
 
             },
             computed: {
