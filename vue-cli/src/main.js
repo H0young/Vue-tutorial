@@ -3,15 +3,15 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-var App = {
-  template: '<div>app</div>'
-}
+// var App = {
+//   template: '<div>app</div>'
+// }
 
 new Vue({
-  render: h => h(App),
-  components: {
-    'app': App
-  }
+  // render: h => h(App),
+  // components: {
+  //   'app': App
+  // }
 }).$mount('#app')
 
 // new Vue({
