@@ -3,6 +3,8 @@
 </template>
 
 <script>
+// import chips from "./components/closable-component.vue"
+
 export default {
   name: "App",
   components: {},
