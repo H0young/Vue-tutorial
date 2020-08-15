@@ -17,9 +17,12 @@ data: function() {
 },
 methods: {
   addTodo: function() {
-    console.log(this.newToDoItem)
-    localStorage.setItem(this.newToDoItem, this.newToDoItem)
+    if (this.newToDoItem !== '') {
+    var obj = {completed: false, item: this.newToDoItem}
+    // console.log(this.newToDoItem)
+    localStorage.setItem(this.newToDoItem, JSON.stringify(obj))
     this.clearInput()
+    }
   },
   clearInput: function() {
     this.newToDoItem = ''
