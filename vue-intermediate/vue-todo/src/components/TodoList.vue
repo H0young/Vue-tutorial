@@ -47,7 +47,7 @@ li {
   border-radius: 5px;
 }
 .checkBtn {
-  line-height: 45px;
+  line-height: 55px;
   color: #62acde;
   margin-right: 5px;
 }
