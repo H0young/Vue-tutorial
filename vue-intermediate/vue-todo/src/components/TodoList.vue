@@ -1,29 +1,39 @@
 <template>
   <div>
-  <ul> 
-    <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item" class="shadow">
-      <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
-      <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-      <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
-        <i class="fas fa-trash-alt"></i>
-      </span>
-    </li>
-  </ul>
+    <ul>
+      <li
+        v-for="(todoItem, index) in this.$store.state.todoItems"
+        v-bind:key="todoItem.item"
+        class="shadow"
+      >
+        <i
+          class="checkBtn fas fa-check"
+          v-bind:class="{ checkBtnCompleted: todoItem.completed }"
+          v-on:click="toggleComplete(todoItem, index)"
+        ></i>
+        <span v-bind:class="{ textCompleted: todoItem.completed }">{{
+          todoItem.item
+        }}</span>
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['propsdata'],
+  props: ["propsdata"],
   methods: {
     removeTodo: function(todoItem, index) {
-      this.$emit('removeItem', todoItem, index)
+      this.$emit("removeItem", todoItem, index);
     },
     toggleComplete: function(todoItem, index) {
-      this.$emit('toggleItem', todoItem, index)
+      this.$emit("toggleItem", todoItem, index);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -61,7 +71,8 @@ li {
 }
 
 /* transition css */
-.list-enter-active, .list-leave-active {
+.list-enter-active,
+.list-leave-active {
   transition: all 1s;
 }
 .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
